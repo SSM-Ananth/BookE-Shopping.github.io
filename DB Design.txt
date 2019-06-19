@@ -1,0 +1,117 @@
+create schema Book_E_Shopping;
+
+create table  BookInventory
+
+(
+
+
+
+Book_Id varchar(20),
+
+
+				Book_Name varchar(50),
+
+				Book_Image varchar(20),
+
+
+				Price float,
+				
+
+
+
+Quantity_In_Stock int,
+				
+
+Binding varchar(20),
+				
+
+Languages varchar(20),
+				
+
+Author_Name varchar(50),
+				
+
+Publisher_Name varchar(50),
+
+				
+primary key( Book_Id)
+
+
+);
+
+Sample insertion:
+  insert into bookinventory values("B004","Like the Floeing River","result.jpg",450,25,"Paperback","English","Paulo Coelho","Harper Collins");
+
+ 
+CREATE TABLE `book_e_shopping`.`user` (
+  `User_Id` INT NOT NULL AUTO_INCREMENT,
+  
+					`First_Name` VARCHAR(45) NULL,
+ 
+					 `Last_Name` VARCHAR(45) NULL,
+  
+					`Age` INT NULL,
+  
+					`Gender` VARCHAR(45) NULL,
+  
+					`Contact_Number` BIGINT(10) NULL,
+  
+					`Email_Id` VARCHAR(45) NULL,
+  
+					`Password` VARCHAR(45) NULL,
+  
+						PRIMARY KEY (`User_Id`))
+
+						AUTO_INCREMENT = 001;
+
+
+Sample Insertion 
+   insert into user (First_Name,Last_Name,Age,Gender,Contact_Number,Email_Id,Password) values ('Ananth','S',21,'Male',1234567890,'ananth@gmail.com','ssma');
+
+
+
+
+create table Cart (User_Id int,
+
+			Book_Id varchar(20),
+                    
+			Quantity int,
+                    
+			foreign key (User_id) references User(User_id),
+                    
+			foreign key (Book_Id) references bookinventory(Book_Id)
+                    
+			);
+
+
+
+
+
+
+
+create table Order_details (Order_id int auto_increment,
+
+				User_id int,
+                            
+				Address_to_ship varchar(100),
+                            	
+				primary key(Order_id),
+                            
+				foreign key(User_id) references User(User_id))
+                            
+				auto_increment=1;
+
+Sample Insertion 
+
+    insert into order_details (user_id,Address_to_ship) values (1,'Madurai');
+
+
+
+
+
+
+
+
+
+
+
